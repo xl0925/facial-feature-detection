@@ -1,0 +1,16 @@
+{% extends "format.html"%}
+{% block content %}
+
+    <h1> Feature for Attractive Female </h1>
+    <form action="/attractive_female">
+        <input type="submit" value="End">
+    </form>
+
+    <div class="camera">
+        <img id="feed" src="{{ url_for('attractive_female_func')}}">
+    </div>
+
+
+
+{% endblock content%}
+
