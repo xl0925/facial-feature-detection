@@ -10,8 +10,8 @@ import os
 # add methods=['GET', 'POST']
 
 app = Flask(__name__)
-path = "C:\\Users\\xil14\\PycharmProjects\\webcam"
-cascade_path = path + '\\resources\\haarcascade_frontalface_default.xml'
+path = "../webcam"
+cascade_path = path + '/resources/haarcascade_frontalface_default.xml'
 tolerance = 3
 
 
@@ -43,7 +43,7 @@ def attractive_female_start():
 @app.route('/attractive_female_func')
 def attractive_female_func():
     category = 'Attractive Female'
-    learner_path = path + '\\resources\\models\\attractive_female_resnet50.pkl'
+    learner_path = path + '/resources/models/attractive_female_resnet50.pkl'
     reply = True
     cam = WebCam(category, learner_path, cascade_path, tolerance, reply)
     return Response(cam.feed(), mimetype='multipart/x-mixed-replace; boundary=frame')
@@ -58,7 +58,7 @@ def attractive_male_func():
 @app.route('/attractive_male_func')
 def attractive_male():
     category = 'Attractive Male'
-    learner_path = path + '\\resources\\models\\attractive_male_resnet50.pkl'
+    learner_path = path + '/resources/models/attractive_male_resnet50.pkl'
     cam = WebCam(category, learner_path, cascade_path, tolerance)
     return Response(cam.feed(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
